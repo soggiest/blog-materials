@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html style="display: none;" <% if(config.language !== null) { %>lang="<%- config.language.substring(0,2) %>"<% } %>>
+<html style="display: none;" 
+    <% if(typeof config.language === 'string') { %>
+        lang="<%- config.language.substring(0,2) %>"
+    <% } else if(typeof config.language === 'object') { %> 
+        lang="<%- config.language[0] %>" 
+    <% } %>
+>
+
     <%- partial('_partial/head') %>
 
     <% if(page.layout === 'gallery') { %>
